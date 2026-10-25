@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Submit Your Story | FasihiBrand</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>FasihiBrand</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stories.html">Stories</a>
+      <a href="submit.html">Submit</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <section class="page narrow">
+    <h2>Submit Your Story</h2>
+    <p>Share your work with our readers. Every story is reviewed before it is published, and we will email you if it is selected.</p>
+
+    <form name="story-submission" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="story-submission">
+      <p class="hidden"><label>Do not fill this out: <input name="bot-field"></label></p>
+
+      <label>Your name
+        <input type="text" name="author_name" required>
+      </label>
+
+      <label>Your email
+        <input type="email" name="email" required>
+      </label>
+
+      <label>Story title
+        <input type="text" name="title" required>
+      </label>
+
+      <label>Genre
+        <select name="genre" required>
+          <option value="">Choose a genre</option>
+          <option>Fiction</option>
+          <option>Romance</option>
+          <option>Mystery</option>
+          <option>Fantasy</option>
+          <option>Real Life</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label>Your story
+        <textarea name="story" rows="14" required></textarea>
+      </label>
+
+      <label>Your social media link (optional)
+        <input type="url" name="social_link" placeholder="https://">
+      </label>
+
+      <button type="submit" class="button">Send Story</button>
+<label class="check">
+  <input type="checkbox" name="confirm_original" required>
+  I confirm this is my original work and I have the right to share it. I have read the <a href="guidelines.html">submission guidelines</a>.
+</label>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2026 FasihiBrand. All rights reserved.</p>
+  </footer>
+</body>
+</html>
