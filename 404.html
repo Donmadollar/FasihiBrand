@@ -7,10 +7,12 @@
   <link rel="stylesheet" href="/style.css">
   <link rel="icon" href="/favicon.ico">
 </head>
-<body>
+<script src="/script.js"></script>
+</body>
   <header>
     <a href="/index.html" class="logo"><img src="/logo.jpg" alt="FasihiBrand"></a>
-    <nav>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav id="nav">
       <a href="/index.html">Home</a>
       <a href="/stories.html">Stories</a>
       <a href="/submit.html">Submit</a>
