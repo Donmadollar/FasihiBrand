@@ -9,18 +9,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.ico">
-  <meta name="description" content="FasihiBrand is a literary platform where new authors publish stories and get discovered by readers.">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Browse and search stories from new authors on FasihiBrand.">
   <meta property="og:site_name" content="FasihiBrand">
   <meta property="og:type" content="website">
   <meta property="og:description" content="Read stories from new voices and discover the authors behind them.">
   <meta property="og:image" content="https://fasihibrand.netlify.app/logo.jpg">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
-<script src="/script.js"></script>
-</body>
+<body>
   <header>
     <a href="index.html" class="logo"><img src="logo.jpg" alt="FasihiBrand"></a>
-    <button class="menu-btn" aria-label="Menu" aria-expanded="false" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
     <nav id="nav">
       <a href="index.html">Home</a>
       <a href="stories.html">Stories</a>
@@ -30,30 +29,29 @@
   </header>
 
   <section class="page">
-    <h2>Latest Stories</h2>
+    <h2>Stories</h2>
 
-    <div class="grid">
-      <div class="card">
-        <span class="genre">Fiction</span>
-        <h3>Sample Story Title One</h3>
-        <p class="author">by Author Name</p>
-        <p>A short teaser of the story goes here in two or three lines.</p>
-        <a href="story1.html">Read story →</a>
-      </div>
-
-      <div class="card">
-        <span class="genre">Romance</span>
-        <h3>Sample Story Title Two</h3>
-        <p class="author">by Another Author</p>
-        <p>A short teaser of the story goes here in two or three lines.</p>
-        <a href="story2.html">Read story →</a>
-      </div>
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search by title, author, topic or keyword" aria-label="Search stories">
+      <select id="sort" aria-label="Sort stories">
+        <option value="new">Newest first</option>
+        <option value="picks">Editor's picks</option>
+        <option value="az">A to Z</option>
+      </select>
     </div>
+
+    <div class="chips" id="genres"></div>
+    <p class="result-count" id="count"></p>
+
+    <div class="grid" id="story-list"></div>
   </section>
 
- <footer>
-  <p>© 2026 FasihiBrand. All rights reserved.</p>
-  <p><a href="guidelines.html">Guidelines</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="about.html">About</a></p>
-</footer>
+  <footer>
+    <p>© 2026 FasihiBrand. All rights reserved.</p>
+    <p><a href="guidelines.html">Guidelines</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="about.html">About</a></p>
+  </footer>
+  <script src="/stories-data.js"></script>
+  <script src="/discover.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
