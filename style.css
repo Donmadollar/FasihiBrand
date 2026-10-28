@@ -81,3 +81,8 @@ details { background: #fff; border: 1px solid #eee; border-radius: 10px; padding
 summary { cursor: pointer; font-weight: bold; }
 details[open] summary { color: #8a4b2a; margin-bottom: 8px; }
 details p { margin: 8px 0 0; }
+header nav a.nav-support { border: 1px solid #c9a14a; padding: 6px 14px; border-radius: 20px; }
+header nav a.nav-support:hover { background: #c9a14a; color: #0d0f14; }
+@media (max-width: 700px) {
+  header nav a.nav-support { border: 1px solid #c9a14a; border-radius: 8px; padding: 12px; margin-top: 8px; text-align: center; }
+}

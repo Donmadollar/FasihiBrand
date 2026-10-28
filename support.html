@@ -1,1 +1,63 @@
-0x894c8D20f18B0cdbbB560B641AcC424Ad6948D7F
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support FasihiBrand | FasihiBrand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Support FasihiBrand and help us keep giving new authors a free place to be read.">
+  <meta property="og:site_name" content="FasihiBrand">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Read stories from new voices and discover the authors behind them.">
+  <meta property="og:image" content="https://fasihibrand.netlify.app/logo.jpg">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo"><img src="logo.jpg" alt="FasihiBrand"></a>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="stories.html">Stories</a>
+      <a href="submit.html">Submit</a> <a href="support.html" class="nav-support">Support</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <section class="page narrow">
+    <h2>Support FasihiBrand</h2>
+    <p>FasihiBrand is free for authors and readers. If you value what we do, you can support our work with a donation. It helps us cover hosting, review stories and keep the platform running.</p>
+
+    <div class="note">
+      <strong>Please note:</strong> donations are voluntary and non-refundable. They never buy publication, priority or a better spot. We will never ask an author to pay to be published.
+    </div>
+
+    <div class="support-card">
+      <h3>Donate with M-Pesa</h3>
+      <p>On your phone, open M-Pesa, choose <strong>Send Money</strong>, and enter:</p>
+      <code class="addr" id="mpesa-number">0714176494</code>
+      <button type="button" class="copy-btn" id="copy-mpesa">Copy number</button>
+      <p>Name on the account: <strong>PASKALI WATUA</strong></p>
+    </div>
+
+    <p>Thank you for helping new voices be heard.</p>
+  </section>
+
+  <footer>
+    <p>© 2026 FasihiBrand. All rights reserved.</p>
+    <p><a href="guidelines.html">Guidelines</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="faq.html">FAQ</a> · <a href="about.html">About</a> · <a href="support.html">Support</a></p>
+  </footer>
+  <script>
+    document.getElementById('copy-mpesa').addEventListener('click', function () {
+      var btn = this;
+      navigator.clipboard.writeText(document.getElementById('mpesa-number').textContent.trim());
+      btn.textContent = 'Copied';
+    });
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>
