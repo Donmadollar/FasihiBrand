@@ -24,5 +24,17 @@ var STORIES = [
     teaser: "Progress is rarely made in front of an audience. It is built in quiet daily decisions, long before the results become visible.",
     url: "article1.html",
     featured: false
+  },{
+    type: "article",
+    title: "Sometimes Life Is Teaching You What You Cannot See Yet",
+    author: "Don Madollar",
+    authorPage: "",
+    genre: "Reflection",
+    topics: ["life lessons", "growth", "resilience", "healing", "moving forward"],
+    date: "2026-11-01",
+    cover: "",
+    teaser: "Not every closed door is a tragedy. Some chapters are not meant to be understood while you are living them.",
+    url: "article2.html",
+    featured: false
   }
 ];
