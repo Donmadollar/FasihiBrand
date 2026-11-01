@@ -1,7 +1,8 @@
 var STORIES = [
   {
+    type: "story",
     title: "The Umbrella on Moi Avenue",
-    author: "FasihiBrand Editorial",
+    author: "FasihiBrand",
     authorPage: "",
     genre: "Romance",
     topics: ["love", "city life", "second chances"],
@@ -10,7 +11,9 @@ var STORIES = [
     teaser: "A rainy afternoon, a borrowed umbrella, and a promise to bring back good news.",
     url: "story1.html",
     featured: true
-  },{
+  },
+  {
+    type: "article",
     title: "Your Future Is Being Built in the Decisions Nobody Sees",
     author: "Don Madollar",
     authorPage: "",
