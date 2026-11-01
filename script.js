@@ -1,15 +1,15 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Mobile menu
-  var btn = document.querySelector('.menu-btn');
+// Mobile menu (works on every page)
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest ? e.target.closest('.menu-btn') : null;
+  if (!btn) return;
+  e.stopPropagation();
   var nav = document.getElementById('nav');
-  if (btn && nav) {
-    btn.removeAttribute('onclick');
-    btn.addEventListener('click', function () {
-      var open = nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
-    });
-  }
+  if (!nav) return;
+  var open = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+}, true);
 
+document.addEventListener('DOMContentLoaded', function () {
   // Reading progress bar
   var bar = document.querySelector('.progress');
   if (bar) {
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
 // Limit long copies from stories and articles, and add credit
 document.addEventListener('copy', function (e) {
   var box = document.querySelector('.story');
@@ -42,7 +43,7 @@ document.addEventListener('copy', function (e) {
   var sel = window.getSelection();
   if (!sel  sel.isCollapsed  !box.contains(sel.anchorNode)) return;
   var text = sel.toString();
-  var LIMIT = 100;
+  var LIMIT = 300;
   var out = text.length > LIMIT ? text.slice(0, LIMIT).trim() + '…' : text;
   out += '\n\nRead the full piece at ' + window.location.href + '\n© FasihiBrand and the author. All rights reserved.';
   e.clipboardData.setData('text/plain', out);
