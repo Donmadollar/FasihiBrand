@@ -35,17 +35,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
-
-// Limit long copies from stories and articles, and add credit
-document.addEventListener('copy', function (e) {
-  var box = document.querySelector('.story');
-  if (!box) return;
-  var sel = window.getSelection();
-  if (!sel  sel.isCollapsed  !box.contains(sel.anchorNode)) return;
-  var text = sel.toString();
-  var LIMIT = 300;
-  var out = text.length > LIMIT ? text.slice(0, LIMIT).trim() + '…' : text;
-  out += '\n\nRead the full piece at ' + window.location.href + '\n© FasihiBrand and the author. All rights reserved.';
-  e.clipboardData.setData('text/plain', out);
-  e.preventDefault();
-});
