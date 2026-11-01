@@ -36,5 +36,17 @@ var STORIES = [
     teaser: "Not every closed door is a tragedy. Some chapters are not meant to be understood while you are living them.",
     url: "article2.html",
     featured: false
+  },{
+    type: "article",
+    title: "I Wish Someone Could Understand the Things I Never Say",
+    author: "Don Madollar",
+    authorPage: "",
+    genre: "Reflection",
+    topics: ["emotions", "being understood", "connection", "healing", "silence"],
+    date: "2026-11-01",
+    cover: "",
+    teaser: "A reflection on the things we carry quietly, and the hope of finding someone in whose presence we no longer need to hide.",
+    url: "article3.html",
+    featured: false
   }
 ];

@@ -16,13 +16,14 @@
     var cover = s.cover ? '<img class="cover" src="' + esc(s.cover) + '" alt="' + esc(s.title) + '" loading="lazy">' : '';
     var author = s.authorPage ? '<a href="' + esc(s.authorPage) + '">' + esc(s.author) + '</a>' : esc(s.author);
     var tags = (s.topics || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('');
+    var readLabel = s.type === 'article' ? 'Read article →' : 'Read story →';
     return '<div class="card">' + cover +
       '<span class="genre">' + esc(s.genre) + '</span>' +
       '<h3>' + esc(s.title) + '</h3>' +
       '<p class="author">by ' + author + ' · ' + fmt(s.date) + '</p>' +
       '<p>' + esc(s.teaser) + '</p>' +
       '<div class="tags">' + tags + '</div>' +
-      '<a href="' + esc(s.url) + '">Read story →</a></div>';
+      '<a href="' + esc(s.url) + '">' + readLabel + '</a></div>';
   }
 
   var recent = document.getElementById('recent-list');
@@ -32,6 +33,12 @@
 
   var list = document.getElementById('story-list');
   if (!list) return;
+
+  var pageType = list.getAttribute('data-type');
+  var POOL = pageType ? STORIES.filter(function (s) { return (s.type || 'story') === pageType; }) : STORIES;
+  var one = pageType === 'article' ? 'article' : 'story';
+  var many = pageType === 'article' ? 'articles' : 'stories';
+
   var search = document.getElementById('search');
   var genreBox = document.getElementById('genres');
   var sortSel = document.getElementById('sort');
@@ -42,7 +49,7 @@
   if (params.get('q')) search.value = params.get('q');
 
   var genres = ['All'];
-  STORIES.forEach(function (s) { if (genres.indexOf(s.genre) === -1) genres.push(s.genre); });
+  POOL.forEach(function (s) { if (genres.indexOf(s.genre) === -1) genres.push(s.genre); });
   genreBox.innerHTML = genres.map(function (g) {
     return '<button type="button" class="chip' + (g === 'All' ? ' active' : '') + '" data-g="' + esc(g) + '">' + esc(g) + '</button>';
   }).join('');
@@ -59,7 +66,7 @@
 
   function render() {
     var q = search.value.trim().toLowerCase();
-    var items = STORIES.filter(function (s) {
+    var items = POOL.filter(function (s) {
       if (activeGenre !== 'All' && s.genre !== activeGenre) return false;
       if (!q) return true;
       var hay = [s.title, s.author, s.genre, (s.topics || []).join(' '), s.teaser].join(' ').toLowerCase();
@@ -71,9 +78,9 @@
       if (mode === 'picks') return (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || byNewest(a, b);
       return byNewest(a, b);
     });
-    count.textContent = items.length + (items.length === 1 ? ' story' : ' stories');
+    count.textContent = items.length + ' ' + (items.length === 1 ? one : many);
     list.innerHTML = items.length ? items.map(card).join('') :
-      '<p class="empty">No stories match your search. Try another word or clear the filter.</p>';
+      '<p class="empty">Nothing matches your search. Try another word or clear the filter.</p>';
   }
   render();
 })();
