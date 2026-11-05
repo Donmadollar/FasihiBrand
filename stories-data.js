@@ -40,13 +40,37 @@ var STORIES = [
     type: "article",
     title: "I Wish Someone Could Understand the Things I Never Say",
     author: "Don Madollar",
-    authorPage: "",
+    authorPage: "author-don-madollar.html",
     genre: "Reflection",
     topics: ["emotions", "being understood", "connection", "healing", "silence"],
     date: "2026-11-01",
     cover: "",
     teaser: "A reflection on the things we carry quietly, and the hope of finding someone in whose presence we no longer need to hide.",
     url: "article3.html",
+    featured: false
+  },{
+    type: "article",
+    title: "Healing Means Facing What You Have Been Trying to Forget",
+    author: "Eudora Ayleen",
+    authorPage: " ",
+    genre: "Reflection",
+    topics: ["healing", "emotional growth", "letting go", "self-awareness", "moving forward"],
+    date: "2026-11-02",
+    cover: "",
+    teaser: "Healing is not about pretending certain things never happened. It is about finding the courage to confront them without letting them control the rest of your life.",
+    url: "article4.html",
+    featured: false
+  },  {
+    type: "article",
+    title: "The Days Nobody Sees You Surviving",
+    author: "Don Madollar",
+    authorPage: "author-don-madollar.html",
+    genre: "Reflection",
+    topics: ["mental health", "resilience", "healing", "self-care", "asking for help"],
+    date: "2026-11-04",
+    cover: "",
+    teaser: "You do not owe the world a performance of happiness. A reflection for anyone quietly fighting battles nobody knows exist.",
+    url: "article5.html",
     featured: false
   }
 ];
