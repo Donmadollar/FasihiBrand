@@ -12,18 +12,23 @@
   }
   function byNewest(a, b) { return new Date(b.date) - new Date(a.date); }
 
+  function readLabel(s) {
+    if (s.type === 'article') return 'Read article →';
+    if (s.type === 'poem') return 'Read poem →';
+    return 'Read story →';
+  }
+
   function card(s) {
     var cover = s.cover ? '<img class="cover" src="' + esc(s.cover) + '" alt="' + esc(s.title) + '" loading="lazy">' : '';
     var author = s.authorPage ? '<a href="' + esc(s.authorPage) + '">' + esc(s.author) + '</a>' : esc(s.author);
     var tags = (s.topics || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('');
-    var readLabel = s.type === 'article' ? 'Read article →' : 'Read story →';
     return '<div class="card">' + cover +
       '<span class="genre">' + esc(s.genre) + '</span>' +
       '<h3>' + esc(s.title) + '</h3>' +
       '<p class="author">by ' + author + ' · ' + fmt(s.date) + '</p>' +
       '<p>' + esc(s.teaser) + '</p>' +
       '<div class="tags">' + tags + '</div>' +
-      '<a href="' + esc(s.url) + '">' + readLabel + '</a></div>';
+      '<a href="' + esc(s.url) + '">' + readLabel(s) + '</a></div>';
   }
 
   var recent = document.getElementById('recent-list');
@@ -36,8 +41,10 @@
 
   var pageType = list.getAttribute('data-type');
   var POOL = pageType ? STORIES.filter(function (s) { return (s.type || 'story') === pageType; }) : STORIES;
-  var one = pageType === 'article' ? 'article' : 'story';
-  var many = pageType === 'article' ? 'articles' : 'stories';
+  var names = { story: ['story', 'stories'], article: ['article', 'articles'], poem: ['poem', 'poems'] };
+  var nm = names[pageType] || names.story;
+  var one = nm[0];
+  var many = nm[1];
 
   var search = document.getElementById('search');
   var genreBox = document.getElementById('genres');
@@ -79,8 +86,13 @@
       return byNewest(a, b);
     });
     count.textContent = items.length + ' ' + (items.length === 1 ? one : many);
-    list.innerHTML = items.length ? items.map(card).join('') :
-      '<p class="empty">Nothing matches your search. Try another word or clear the filter.</p>';
+    if (items.length) {
+      list.innerHTML = items.map(card).join('');
+    } else if (POOL.length === 0) {
+      list.innerHTML = '<p class="empty">New ' + many + ' are coming soon. Check back shortly.</p>';
+    } else {
+      list.innerHTML = '<p class="empty">Nothing matches your search. Try another word or clear the filter.</p>';
+    }
   }
   render();
 })();

@@ -100,3 +100,4 @@ header nav a.nav-support:hover { background: #c9a14a; color: #0d0f14; }
 .cat h4 { margin: 0 0 6px; color: #8a4b2a; font-size: 1.15rem; }
 .cat p { margin: 0; font-size: 0.95rem; color: #555; }
 .footer-tag { font-style: italic; }
+.verse-excerpt { white-space: pre-line; font-style: italic; font-size: 1.2rem; line-height: 1.9; color: #8a4b2a; }
