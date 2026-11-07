@@ -52,7 +52,7 @@ var STORIES = [
     type: "article",
     title: "Healing Means Facing What You Have Been Trying to Forget",
     author: "Eudora Ayleen",
-    authorPage: "author-eudora-ayleen.html ",
+    authorPage: "author-eudora-ayleen.html",
     genre: "Reflection",
     topics: ["healing", "emotional growth", "letting go", "self-awareness", "moving forward"],
     date: "2026-11-02",
@@ -100,7 +100,7 @@ var STORIES = [
     type: "poem",
     title: "The Art of Becoming",
     author: "Eudora Ayleen",
-    authorPage: "",
+    authorPage: "author-eudora-ayleen.html",
     genre: "Growth",
     topics: ["growth", "healing", "resilience", "self-discovery", "becoming"],
     date: "2026-11-06",
@@ -108,5 +108,17 @@ var STORIES = [
     teaser: "A soul still unfolding, a heart still becoming, a life still uncertain, yet endlessly blooming.",
     url: "poem1.html",
     featured: true
+  },  {
+    type: "article",
+    title: "We Rarely Fall in Love With People as They Truly Are",
+    author: "Don Madollar",
+    authorPage: "author-don-madollar.html",
+    genre: "Relationships",
+    topics: ["love", "relationships", "expectations", "imagination", "understanding"],
+    date: "2026-11-07",
+    cover: "",
+    teaser: "More often than we admit, we fall in love with the versions of people we have quietly constructed in our minds.",
+    url: "article8.html",
+    featured: false
   }
 ];
