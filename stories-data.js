@@ -120,5 +120,17 @@ var STORIES = [
     teaser: "More often than we admit, we fall in love with the versions of people we have quietly constructed in our minds.",
     url: "article8.html",
     featured: false
+  },{
+    type: "article",
+    title: "The Illusion of Human Goodness",
+    author: "Don Madollar",
+    authorPage: "author-don-madollar.html",
+    genre: "Philosophy",
+    topics: ["morality", "character", "integrity", "human nature", "self-awareness"],
+    date: "2026-11-08",
+    cover: "",
+    teaser: "Goodness is not established by how beautifully we describe ourselves, but by what we do when doing the right thing becomes expensive.",
+    url: "article9.html",
+    featured: false
   }
 ];

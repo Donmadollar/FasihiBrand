@@ -12,23 +12,57 @@
   }
   function byNewest(a, b) { return new Date(b.date) - new Date(a.date); }
 
+  var TYPE_LABEL = { story: 'Short Story', article: 'Article', poem: 'Poem' };
+
   function readLabel(s) {
     if (s.type === 'article') return 'Read article →';
     if (s.type === 'poem') return 'Read poem →';
     return 'Read story →';
   }
 
+  function coverBlock(s) {
+    if (s.cover) {
+      return '<img class="cover" src="' + esc(s.cover) + '" alt="' + esc(s.title) + '" loading="lazy">';
+    }
+    var type = s.type || 'story';
+    var titleText = String(s.title);
+var initial = titleText.charAt(0).toUpperCase();
+    return '<div class="cover-gen cover-' + esc(type) + '" aria-hidden="true">' +
+      '<span class="ct-type">' + esc(TYPE_LABEL[type] || 'Story') + '</span>' +
+      '<span class="ct-initial">' + esc(initial) + '</span>' +
+      '<span class="ct-genre">' + esc(s.genre) + '</span></div>';
+  }
+
   function card(s) {
-    var cover = s.cover ? '<img class="cover" src="' + esc(s.cover) + '" alt="' + esc(s.title) + '" loading="lazy">' : '';
     var author = s.authorPage ? '<a href="' + esc(s.authorPage) + '">' + esc(s.author) + '</a>' : esc(s.author);
     var tags = (s.topics || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('');
-    return '<div class="card">' + cover +
+    return '<div class="card">' + coverBlock(s) +
       '<span class="genre">' + esc(s.genre) + '</span>' +
       '<h3>' + esc(s.title) + '</h3>' +
       '<p class="author">by ' + author + ' · ' + fmt(s.date) + '</p>' +
       '<p>' + esc(s.teaser) + '</p>' +
       '<div class="tags">' + tags + '</div>' +
       '<a href="' + esc(s.url) + '">' + readLabel(s) + '</a></div>';
+  }
+
+  var stats = document.getElementById('stats');
+  if (stats) {
+    var counts = { article: 0, story: 0, poem: 0 };
+    var writers = {};
+    STORIES.forEach(function (s) {
+      var t = s.type || 'story';
+      counts[t] = (counts[t] || 0) + 1;
+      if (s.author && !/editorial/i.test(s.author)) writers[s.author] = true;
+    });
+    var bits = [];
+    var addStat = function (n, one, many) {
+      if (n > 0) bits.push('<div class="stat"><strong>' + n + '</strong><span>' + (n === 1 ? one : many) + '</span></div>');
+    };
+    addStat(counts.article, 'Article', 'Articles');
+    addStat(counts.story, 'Short story', 'Short stories');
+    addStat(counts.poem, 'Poem', 'Poems');
+    addStat(Object.keys(writers).length, 'Writer', 'Writers');
+    stats.innerHTML = bits.join('');
   }
 
   var recent = document.getElementById('recent-list');
