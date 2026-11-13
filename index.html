@@ -41,6 +41,12 @@
 
   <section class="stats-strip">
     <div class="stats" id="stats"></div>
+      <section class="ticker" id="picks" aria-label="Editor's picks">
+    <span class="ticker-label">EDITOR'S PICKS</span>
+    <div class="ticker-window">
+      <div class="ticker-track" id="picks-track"></div>
+    </div>
+  </section>
   </section>
 
   <section class="section alt">
@@ -54,15 +60,31 @@ A life still uncertain, yet endlessly blooming.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="editor-note">
-      <p class="kicker">EDITOR'S NOTE</p>
-      <blockquote>“Where Words Find Meaning, and Stories Find a Home.”</blockquote>
-      <p>Dear Reader,</p>
-      <p>Welcome to FasihiBrand, a space built on the enduring power of words, the beauty of imagination, and the freedom of expression.</p>
-      <p>Literature has always been one of humanity's greatest instruments of understanding. Through poetry, we give emotions a language; through stories, we preserve experiences; and through thoughtful writing, we challenge perspectives, question conventions, and explore the complexities of being human.</p>
-      <p class="sign">The Editor, FasihiBrand Editorial Desk</p>
-      <p><a class="text-link" href="editors-note.html">Read the full editor's note →</a></p>
+    <section class="section">
+    <div class="zip-book" id="zip-book">
+      <div class="zip-note editor-note" id="zip-note">
+        <p class="kicker">EDITOR'S NOTE</p>
+        <blockquote>“Where Words Find Meaning, and Stories Find a Home.”</blockquote>
+        <p>Dear Reader,</p>
+        <p>Welcome to FasihiBrand, a space built on the enduring power of words, the beauty of imagination, and the freedom of expression.</p>
+        <p>Literature has always been one of humanity's greatest instruments of understanding. Through poetry, we give emotions a language; through stories, we preserve experiences; and through thoughtful writing, we challenge perspectives, question conventions, and explore the complexities of being human.</p>
+        <p class="sign">The Editor, FasihiBrand Editorial Desk</p>
+        <p><a class="text-link" href="editors-note.html">Read the full editor's note →</a></p>
+      </div>
+
+      <div class="zip-cover" aria-hidden="true">
+        <div class="zip-half zip-left"></div>
+        <div class="zip-half zip-right"></div>
+        <div class="zip-spine"></div>
+        <div class="zip-title">
+          <p class="zip-kicker">EDITOR'S NOTE</p>
+          <p class="zip-quote">“Where Words Find Meaning, and Stories Find a Home.”</p>
+        </div>
+      </div>
+
+      <button type="button" class="zip-pull" id="zip-pull" aria-expanded="false" aria-controls="zip-note">
+        <span class="zip-label" id="zip-label">Unzip to read</span>
+      </button>
     </div>
   </section>
 

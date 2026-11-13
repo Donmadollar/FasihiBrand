@@ -132,5 +132,17 @@ var STORIES = [
     teaser: "Goodness is not established by how beautifully we describe ourselves, but by what we do when doing the right thing becomes expensive.",
     url: "article9.html",
     featured: false
+  },  {
+    type: "article",
+    title: "What My Younger Self Taught Me Without Meaning To",
+    author: "FasihiBrand Editorial",
+    authorPage: "",
+    genre: "Reflection",
+    topics: ["growing up", "memory", "self-compassion", "personal growth", "looking back"],
+    date: "2026-11-09",
+    cover: "",
+    teaser: "Growing up was never meant to be tidy. A gentle reflection on remembering, with kindness, the person who made the mistakes.",
+    url: "article10.html",
+    featured: false
   }
 ];

@@ -64,7 +64,25 @@ var initial = titleText.charAt(0).toUpperCase();
     addStat(Object.keys(writers).length, 'Writer', 'Writers');
     stats.innerHTML = bits.join('');
   }
-
+  var track = document.getElementById('picks-track');
+  if (track) {
+    var picks = STORIES.filter(function (s) { return s.featured; }).sort(byNewest);
+    if (picks.length === 0) {
+      var picksBox = document.getElementById('picks');
+      if (picksBox) picksBox.style.display = 'none';
+    } else {
+      var tickerItems = picks.map(function (s) {
+        return '<a class="ticker-item" href="' + esc(s.url) + '"><span class="ticker-type">' +
+          esc(TYPE_LABEL[s.type || 'story'] || 'Story') + '</span> ' + esc(s.title) +
+          ' <em>by ' + esc(s.author) + '</em></a>';
+      }).join('<span class="ticker-dot">✦</span>');
+      track.innerHTML = '<div class="ticker-group">' + tickerItems + '</div>' +
+        '<div class="ticker-group" aria-hidden="true">' + tickerItems + '</div>';
+      Array.prototype.forEach.call(track.lastChild.querySelectorAll('a'), function (a) {
+        a.setAttribute('tabindex', '-1');
+      });
+    }
+  }
   var recent = document.getElementById('recent-list');
   if (recent) {
     recent.innerHTML = STORIES.slice().sort(byNewest).slice(0, 3).map(card).join('');

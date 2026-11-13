@@ -34,4 +34,18 @@ document.addEventListener('DOMContentLoaded', function () {
       cp.textContent = 'Link copied';
     });
   }
+});document.addEventListener('DOMContentLoaded', function () {
+  var book = document.getElementById('zip-book');
+  if (!book) return;
+  var pull = document.getElementById('zip-pull');
+  var note = document.getElementById('zip-note');
+  var label = document.getElementById('zip-label');
+  book.classList.add('zip-js');
+  note.inert = true;
+  pull.addEventListener('click', function () {
+    var open = book.classList.toggle('open');
+    pull.setAttribute('aria-expanded', open ? 'true' : 'false');
+    note.inert = !open;
+    label.textContent = open ? 'Zip it closed' : 'Unzip to read';
+  });
 });
