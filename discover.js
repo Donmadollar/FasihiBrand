@@ -76,8 +76,10 @@ var initial = titleText.charAt(0).toUpperCase();
           esc(TYPE_LABEL[s.type || 'story'] || 'Story') + '</span> ' + esc(s.title) +
           ' <em>by ' + esc(s.author) + '</em></a>';
       }).join('<span class="ticker-dot">✦</span>');
-      track.innerHTML = '<div class="ticker-group">' + tickerItems + '</div>' +
-        '<div class="ticker-group" aria-hidden="true">' + tickerItems + '</div>';
+            var loop = '';
+      for (var r = 0; r < 4; r++) { loop += tickerItems + '<span class="ticker-dot">✦</span>'; }
+      track.innerHTML = '<div class="ticker-group">' + loop + '</div>' +
+        '<div class="ticker-group" aria-hidden="true">' + loop + '</div>';
       Array.prototype.forEach.call(track.lastChild.querySelectorAll('a'), function (a) {
         a.setAttribute('tabindex', '-1');
       });
